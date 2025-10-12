@@ -8,6 +8,6 @@ I initially built the engine as a console app - it was so small that I just crea
 
 It was built using VS 2026 in October 2025 and therefore the Insiders edition, with a prerelease build of .NET 10. Given it's pure WASM it should work fine as the relevant runtime is downloaded into the browser together with it.
 
-For front end SPA apps I would often go to Angular or Reabt, but clearly given the entire point is to dig into .NET internals this by definition wouldn't work in JS.
+For front end SPA apps I would often go to Angular or React, but clearly given the entire point is to dig into .NET internals this by definition wouldn't work in JS.
 
 Happy bitting!
