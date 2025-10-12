@@ -1,7 +1,104 @@
 ﻿@page "/"
+@using DotNetNumericBitPrinter.Infrastructure
+@inject ILogger<Home> logger
 
-<PageTitle>Home</PageTitle>
+<PageTitle>Bit Printer</PageTitle>
 
-<h1>Hello, world!</h1>
 
-Welcome to your new app.
+
+<main id="container">
+	<h1>.NET Bit Printer</h1>
+	<EditForm Model="Model" OnSubmit="Submit" FormName="HomeForm">
+		<section id="sec-data-type">
+			<label id="lbl-data-type">
+				@Messages.DatatypeLabel
+			</label>
+			<InputSelect id="ddl-data-type" @bind-Value="@Model.Datatype">
+				<option selected value="">@Messages.PleaseSelectLabel</option>
+				<option value="sbyte">sbyte</option>
+				<option value="byte">byte</option>
+				<option value="short">short</option>
+				<option value="ushort">ushort</option>
+				<option value="int">int</option>
+				<option value="uint">uint</option>
+				<option value="long">long</option>
+				<option value="ulong">ulong</option>
+				<option value="float">float</option>
+				<option value="double">double</option>
+				<option value="decimal">decimal</option>
+			</InputSelect>
+		</section>
+		<section id="sec-values">
+			<label id="lbl-values">@Messages.ValuesLabel</label><br />
+			<InputTextArea id="txt-values" rows="10" cols="40" @bind-Value="@Model.RawValuesString"
+				placeholder="@Messages.ValuesTextboxCaption" title="@Messages.ValuesTextboxCaption"></InputTextArea>
+		</section>
+		<section id="sec-go">
+			<button id="btn-submit" type="submit" disabled=@SubmitDisabled 
+					title="@SubmitButtonTooltip">
+				Submit
+			</button>
+		</section>
+		@if (Model.Errors.Any()) 
+		{
+			<section id="sec-errors">
+				<p>@Messages.ErrorsLabel</p>
+				@foreach (var error in Errors)
+				{
+					<p>@error</p>
+				}
+			</section>
+		}
+		@if (Model.ValueResults.Any())
+		{
+			<section id="sec-output">
+				@foreach (var result in Model.ValueResults)
+				{
+					<p>
+						@Messages.RawValueLabel: <code>@result.DecimalRepresentation</code> @Messages.HecidecimalLabel <code>@result.HexRepresentation</code> <br />
+						@Messages.BinaryLabel<br />
+						<code>@result.BinaryRepresentation</code>
+					</p>
+				}
+			</section>				
+		}
+		</EditForm>
+</main>
+
+@inject IByteFormatter byteFormatter
+@inject IValuesParser valuesParser
+
+@code 
+{
+	[Inject]
+	private IValuesParser ValuesParser { get; set; }
+
+	[SupplyParameterFromForm, EditorRequired]
+	private HomeModel Model { get; set; }
+
+	protected override void OnInitialized() => Model ??= new();
+
+	private bool SubmitDisabled => Model.Datatype == string.Empty;
+	private string SubmitButtonTooltip => SubmitDisabled ? Messages.SubmitDisabledCaption : string.Empty;
+
+	private void Submit() 
+	{
+		Model.ValueResults = new List<ResultOutput>();
+		Model.Errors = new List<string>();
+		 
+		logger.LogInformation("Selected Datatype = {Datatype}", Model.Datatype);
+
+		var selectedDataType = ValuesParser.GetSelectedType(Model.Datatype);
+
+		var rawStringValues = ValuesParser.TokeniseValues(Model.RawValuesString);
+
+		var rawValues = ValuesParser.TryParseValues(selectedDataType, rawStringValues, out var errors);
+
+		Model.ValueResults.AddRange(rawValues.Select(v => byteFormatter.GetResultOutput(v, selectedDataType)));
+
+		if (errors.Any())
+			Model.Errors.AddRange(errors);
+	}
+
+	private string[] Errors => Model.Errors.ToArray();
+}
