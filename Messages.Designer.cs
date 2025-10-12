@@ -19,7 +19,7 @@ namespace DotNetNumericBitPrinter {
     // à l'aide d'un outil, tel que ResGen ou Visual Studio.
     // Pour ajouter ou supprimer un membre, modifiez votre fichier .ResX, puis réexécutez ResGen
     // avec l'option /str ou régénérez votre projet VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Messages {
@@ -39,7 +39,7 @@ namespace DotNetNumericBitPrinter {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BitPrinter.Messages", typeof(Messages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DotNetNumericBitPrinter.Messages", typeof(Messages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -75,6 +75,24 @@ namespace DotNetNumericBitPrinter {
         internal static string BinaryLabel {
             get {
                 return ResourceManager.GetString("BinaryLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Data type.
+        /// </summary>
+        internal static string DatatypeLabel {
+            get {
+                return ResourceManager.GetString("DatatypeLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Errors.
+        /// </summary>
+        internal static string ErrorsLabel {
+            get {
+                return ResourceManager.GetString("ErrorsLabel", resourceCulture);
             }
         }
         
@@ -133,11 +151,29 @@ namespace DotNetNumericBitPrinter {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à No Errors.
+        /// </summary>
+        internal static string NoErrorsLabel {
+            get {
+                return ResourceManager.GetString("NoErrorsLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Please enter valid values for the datatype selected ({0}), separated by spaces.
         /// </summary>
         internal static string NumbersPrompt {
             get {
                 return ResourceManager.GetString("NumbersPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Please Select.
+        /// </summary>
+        internal static string PleaseSelectLabel {
+            get {
+                return ResourceManager.GetString("PleaseSelectLabel", resourceCulture);
             }
         }
         
@@ -192,6 +228,24 @@ namespace DotNetNumericBitPrinter {
         internal static string TypeNotSupportedMessage {
             get {
                 return ResourceManager.GetString("TypeNotSupportedMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Values.
+        /// </summary>
+        internal static string ValuesLabel {
+            get {
+                return ResourceManager.GetString("ValuesLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Values can be separated by a space or newline..
+        /// </summary>
+        internal static string ValuesLabelCaption {
+            get {
+                return ResourceManager.GetString("ValuesLabelCaption", resourceCulture);
             }
         }
     }

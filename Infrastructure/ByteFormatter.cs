@@ -7,10 +7,17 @@ namespace DotNetNumericBitPrinter.Infrastructure
     {
         const string HEX_FORMAT = "x2", BINARY_FORMAT = "b8";
 
-        public static string GetRepresentation(object value, TypeInfo typeInfo, bool hex)
+        public static ResultOutput GetResultOutput(object value, TypeInfo typeInfo)
+        {
+            string binaryRepresentation = GetRepresentation(value, typeInfo, hex: false);
+            string hexRepresentation = GetRepresentation(value, typeInfo, hex: true);
+
+            return new ResultOutput(value, binaryRepresentation, hexRepresentation, value.ToString() ?? string.Empty);
+        }
+
+        private static string GetRepresentation(object value, TypeInfo typeInfo, bool hex)
         {
             string formatter = hex ? HEX_FORMAT : BINARY_FORMAT;
-            string spacer = hex ? string.Empty : " "; // 
 
             switch (typeInfo.Alias)
             {
@@ -84,6 +91,7 @@ namespace DotNetNumericBitPrinter.Infrastructure
         private static string RenderBytes(byte[] bytes, bool hex)
         {
             string formatter = hex ? HEX_FORMAT : BINARY_FORMAT;
+
             string spacerFor1 = hex ? string.Empty : " "; // spacer entre 2 octets pour binaire, pas pour hex
             string spacerFor2 = " ";
 

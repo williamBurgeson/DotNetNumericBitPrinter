@@ -162,4 +162,22 @@
   <data name="TypeNotSupportedMessage" xml:space="preserve">
     <value>Type {0} n'est pas supporté</value>
   </data>
+  <data name="DatatypeLabel" xml:space="preserve">
+    <value>Type de données</value>
+  </data>
+  <data name="PleaseSelectLabel" xml:space="preserve">
+    <value>Sélectionner</value>
+  </data>
+  <data name="ValuesLabel" xml:space="preserve">
+    <value>Valeurs</value>
+  </data>
+  <data name="ValuesLabelCaption" xml:space="preserve">
+    <value>Les valeurs peuvent être séparées par un espace ou une nouvelle ligne</value>
+  </data>
+  <data name="ErrorsLabel" xml:space="preserve">
+    <value>Erreurs</value>
+  </data>
+  <data name="NoErrorsLabel" xml:space="preserve">
+    <value>Pas d'Erreurs</value>
+  </data>
 </root>
