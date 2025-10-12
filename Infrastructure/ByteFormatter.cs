@@ -3,11 +3,16 @@ using System.Text;
 
 namespace DotNetNumericBitPrinter.Infrastructure
 {
-    internal static class ByteFormatter
+    internal interface IByteFormatter
+    {
+        ResultOutput GetResultOutput(object value, TypeInfo typeInfo);
+    }
+
+    internal class ByteFormatter : IByteFormatter
     {
         const string HEX_FORMAT = "x2", BINARY_FORMAT = "b8";
 
-        public static ResultOutput GetResultOutput(object value, TypeInfo typeInfo)
+        public ResultOutput GetResultOutput(object value, TypeInfo typeInfo)
         {
             string binaryRepresentation = GetRepresentation(value, typeInfo, hex: false);
             string hexRepresentation = GetRepresentation(value, typeInfo, hex: true);

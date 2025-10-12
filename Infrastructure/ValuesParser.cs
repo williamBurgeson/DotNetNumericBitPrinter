@@ -2,20 +2,27 @@
 
 namespace DotNetNumericBitPrinter.Infrastructure
 {
-    public static class ValuesParser
+    public interface IValuesParser
     {
-        public static string[] TokeniseValues(string rawInput) =>
+        string[] TokeniseValues(string rawInput);
+        TypeInfo GetSelectedType(string selectedTypeName);
+        List<object> TryParseValues(TypeInfo selectedType, string[] rawStringValues, out List<string> errors);
+    }
+
+    public class ValuesParser : IValuesParser
+    {
+        public string[] TokeniseValues(string rawInput) =>
             (rawInput ?? string.Empty)
                 .Split(Environment.NewLine, StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries)
                 .SelectMany(line => line.Split(' ', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries))
                 .Select(val => val.Trim())
                 .ToArray();
 
-        public static List<object> TryParseValues(TypeInfo selectedType, string[] rawStringValues, 
+        public List<object> TryParseValues(TypeInfo selectedType, string[] rawStringValues,
             out List<string> errors)
         {
             List<object> values = new();
-            errors = new List<string>(); 
+            errors = new List<string>();
 
             foreach (string valueString in rawStringValues)
             {
@@ -33,6 +40,21 @@ namespace DotNetNumericBitPrinter.Infrastructure
 
             return values;
         }
+
+        public TypeInfo GetSelectedType(string selectedTypeName)
+        {
+            TypeInfo? selectedType = null;
+
+            if (!SupportedTypes.All.Select(x => x.Alias).Contains(selectedTypeName))
+            {
+                throw new ArgumentException(string.Format(Messages.InvalidTypeNameMessage, selectedTypeName));
+            }
+
+            selectedType = SupportedTypes.All.First(x => x.Alias == selectedTypeName);
+
+            return selectedType;
+        }
+
         private static bool TryParseValue(string valueString, TypeInfo selectedType, out object? parsedValue)
         {
             bool parseSuccessful = false;
@@ -89,20 +111,6 @@ namespace DotNetNumericBitPrinter.Infrastructure
             }
 
             return parseSuccessful;
-        }
-
-        public static TypeInfo GetSelectedType(string selectedTypeName)
-        {
-            TypeInfo? selectedType = null;
-
-            if (!SupportedTypes.All.Select(x => x.Alias).Contains(selectedTypeName))
-            {
-                throw new ArgumentException(string.Format(Messages.InvalidTypeNameMessage, selectedTypeName));
-            }
-
-            selectedType = SupportedTypes.All.First(x => x.Alias == selectedTypeName);
-
-            return selectedType;
         }
     }
 }

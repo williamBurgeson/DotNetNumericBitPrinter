@@ -65,8 +65,14 @@
 		</EditForm>
 </main>
 
+@inject IByteFormatter byteFormatter
+@inject IValuesParser valuesParser
+
 @code 
 {
+	[Inject]
+	private IValuesParser ValuesParser { get; set; }
+
 	[SupplyParameterFromForm, EditorRequired]
 	private HomeModel Model { get; set; }
 
@@ -88,7 +94,7 @@
 
 		var rawValues = ValuesParser.TryParseValues(selectedDataType, rawStringValues, out var errors);
 
-		Model.ValueResults.AddRange(rawValues.Select(v => ByteFormatter.GetResultOutput(v, selectedDataType)));
+		Model.ValueResults.AddRange(rawValues.Select(v => byteFormatter.GetResultOutput(v, selectedDataType)));
 
 		if (errors.Any())
 			Model.Errors.AddRange(errors);
