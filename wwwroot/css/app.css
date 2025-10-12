@@ -102,8 +102,8 @@ a, .btn-link {
     }
 
 code {
-    color: #c02d76;
-}
+/*    color: #c02d76;
+*/}
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
     color: var(--bs-secondary-color);
@@ -112,4 +112,21 @@ code {
 
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
     text-align: start;
+}
+
+#app {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+code {
+    font-size: 1.1em
+}
+
+#sec-errors {
+    margin-top: 1em;
+    color: #d02d26;
+    font-style:italic;
+    font-weight: bold;
 }

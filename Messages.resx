@@ -180,4 +180,10 @@
   <data name="NoErrorsLabel" xml:space="preserve">
     <value>No Errors</value>
   </data>
+  <data name="ValuesTextboxCaption" xml:space="preserve">
+    <value>Values can be entered on separate lines, separated by a space, or both.</value>
+  </data>
+  <data name="SubmitDisabledCaption" xml:space="preserve">
+    <value>Choose a datatype to enable the Submit Button</value>
+  </data>
 </root>

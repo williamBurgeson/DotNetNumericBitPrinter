@@ -22,7 +22,7 @@ namespace DotNetNumericBitPrinter {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Messages {
+    public class Messages {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace DotNetNumericBitPrinter {
         ///   Retourne l'instance ResourceManager mise en cache utilisée par cette classe.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DotNetNumericBitPrinter.Messages", typeof(Messages).Assembly);
@@ -51,7 +51,7 @@ namespace DotNetNumericBitPrinter {
         ///   les recherches de ressources à l'aide de cette classe de ressource fortement typée.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace DotNetNumericBitPrinter {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à Alias.
         /// </summary>
-        internal static string AliasLabel {
+        public static string AliasLabel {
             get {
                 return ResourceManager.GetString("AliasLabel", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace DotNetNumericBitPrinter {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à Binary Representation.
         /// </summary>
-        internal static string BinaryLabel {
+        public static string BinaryLabel {
             get {
                 return ResourceManager.GetString("BinaryLabel", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace DotNetNumericBitPrinter {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à Data type.
         /// </summary>
-        internal static string DatatypeLabel {
+        public static string DatatypeLabel {
             get {
                 return ResourceManager.GetString("DatatypeLabel", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace DotNetNumericBitPrinter {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à Errors.
         /// </summary>
-        internal static string ErrorsLabel {
+        public static string ErrorsLabel {
             get {
                 return ResourceManager.GetString("ErrorsLabel", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace DotNetNumericBitPrinter {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à Hexidecimal Representation.
         /// </summary>
-        internal static string HecidecimalLabel {
+        public static string HecidecimalLabel {
             get {
                 return ResourceManager.GetString("HecidecimalLabel", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace DotNetNumericBitPrinter {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à The dataype selected ({0}) does not support fractional values.
         /// </summary>
-        internal static string InvalidDecimalPointMessage {
+        public static string InvalidDecimalPointMessage {
             get {
                 return ResourceManager.GetString("InvalidDecimalPointMessage", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace DotNetNumericBitPrinter {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à The datatype selected ({0}) does not support signed or negative values.
         /// </summary>
-        internal static string InvalidSignMessage {
+        public static string InvalidSignMessage {
             get {
                 return ResourceManager.GetString("InvalidSignMessage", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace DotNetNumericBitPrinter {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à Datatype must be one of: sbyte, byte, short, ushort, int, uint, long, ulong, float, double, decimal.
         /// </summary>
-        internal static string InvalidTypeNameMessage {
+        public static string InvalidTypeNameMessage {
             get {
                 return ResourceManager.GetString("InvalidTypeNameMessage", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace DotNetNumericBitPrinter {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à The value {0} is invalid for datatype {1}.
         /// </summary>
-        internal static string InvalidValueMessage {
+        public static string InvalidValueMessage {
             get {
                 return ResourceManager.GetString("InvalidValueMessage", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace DotNetNumericBitPrinter {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à The list is empty.
         /// </summary>
-        internal static string ListIsEmptyPrompt {
+        public static string ListIsEmptyPrompt {
             get {
                 return ResourceManager.GetString("ListIsEmptyPrompt", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace DotNetNumericBitPrinter {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à No Errors.
         /// </summary>
-        internal static string NoErrorsLabel {
+        public static string NoErrorsLabel {
             get {
                 return ResourceManager.GetString("NoErrorsLabel", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace DotNetNumericBitPrinter {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à Please enter valid values for the datatype selected ({0}), separated by spaces.
         /// </summary>
-        internal static string NumbersPrompt {
+        public static string NumbersPrompt {
             get {
                 return ResourceManager.GetString("NumbersPrompt", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace DotNetNumericBitPrinter {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à Please Select.
         /// </summary>
-        internal static string PleaseSelectLabel {
+        public static string PleaseSelectLabel {
             get {
                 return ResourceManager.GetString("PleaseSelectLabel", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace DotNetNumericBitPrinter {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à Enter the datatype for the values to parse (or Q to quit).
         /// </summary>
-        internal static string Prompt {
+        public static string Prompt {
             get {
                 return ResourceManager.GetString("Prompt", resourceCulture);
             }
@@ -189,7 +189,7 @@ namespace DotNetNumericBitPrinter {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à You have quit the application.
         /// </summary>
-        internal static string QuitMessage {
+        public static string QuitMessage {
             get {
                 return ResourceManager.GetString("QuitMessage", resourceCulture);
             }
@@ -198,16 +198,25 @@ namespace DotNetNumericBitPrinter {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à Raw Value.
         /// </summary>
-        internal static string RawValueLabel {
+        public static string RawValueLabel {
             get {
                 return ResourceManager.GetString("RawValueLabel", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Choose a datatype to enable the Submit Button.
+        /// </summary>
+        public static string SubmitDisabledCaption {
+            get {
+                return ResourceManager.GetString("SubmitDisabledCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Values of type {0} selected.
         /// </summary>
-        internal static string TableTitle {
+        public static string TableTitle {
             get {
                 return ResourceManager.GetString("TableTitle", resourceCulture);
             }
@@ -216,7 +225,7 @@ namespace DotNetNumericBitPrinter {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à BitPrinter: Display the bits and hex values of basic numeric datatypes in C#.
         /// </summary>
-        internal static string Title {
+        public static string Title {
             get {
                 return ResourceManager.GetString("Title", resourceCulture);
             }
@@ -225,7 +234,7 @@ namespace DotNetNumericBitPrinter {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à Type {0} not supported.
         /// </summary>
-        internal static string TypeNotSupportedMessage {
+        public static string TypeNotSupportedMessage {
             get {
                 return ResourceManager.GetString("TypeNotSupportedMessage", resourceCulture);
             }
@@ -234,7 +243,7 @@ namespace DotNetNumericBitPrinter {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à Values.
         /// </summary>
-        internal static string ValuesLabel {
+        public static string ValuesLabel {
             get {
                 return ResourceManager.GetString("ValuesLabel", resourceCulture);
             }
@@ -243,9 +252,18 @@ namespace DotNetNumericBitPrinter {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à Values can be separated by a space or newline..
         /// </summary>
-        internal static string ValuesLabelCaption {
+        public static string ValuesLabelCaption {
             get {
                 return ResourceManager.GetString("ValuesLabelCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Values can be entered on separate lines, separated by a space, or both..
+        /// </summary>
+        public static string ValuesTextboxCaption {
+            get {
+                return ResourceManager.GetString("ValuesTextboxCaption", resourceCulture);
             }
         }
     }

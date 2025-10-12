@@ -4,9 +4,10 @@
 
 <PageTitle>Bit Printer</PageTitle>
 
-<h1>.NET Bit Printer</h1>
+
 
 <main id="container">
+	<h1>.NET Bit Printer</h1>
 	<EditForm Model="Model" OnSubmit="Submit" FormName="HomeForm">
 		<section id="sec-data-type">
 			<label id="lbl-data-type">
@@ -29,10 +30,14 @@
 		</section>
 		<section id="sec-values">
 			<label id="lbl-values">@Messages.ValuesLabel</label><br />
-			<InputTextArea id="txt-values" rows="10" cols="40" @bind-Value="@Model.RawValuesString"></InputTextArea>
+			<InputTextArea id="txt-values" rows="10" cols="40" @bind-Value="@Model.RawValuesString"
+				placeholder="@Messages.ValuesTextboxCaption" title="@Messages.ValuesTextboxCaption"></InputTextArea>
 		</section>
 		<section id="sec-go">
-			<button id="btn-submit" type="submit" disabled=@SubmitDiasbled>Submit</button>
+			<button id="btn-submit" type="submit" disabled=@SubmitDisabled 
+					title="@SubmitButtonTooltip">
+				Submit
+			</button>
 		</section>
 		@if (Model.Errors.Any()) 
 		{
@@ -49,7 +54,11 @@
 			<section id="sec-output">
 				@foreach (var result in Model.ValueResults)
 				{
-					<p>@result.DecimalRepresentation : @result.HexRepresentation <br />@result.BinaryRepresentation</p>
+					<p>
+						@Messages.RawValueLabel: <code>@result.DecimalRepresentation</code> @Messages.HecidecimalLabel <code>@result.HexRepresentation</code> <br />
+						@Messages.BinaryLabel<br />
+						<code>@result.BinaryRepresentation</code>
+					</p>
 				}
 			</section>				
 		}
@@ -57,13 +66,14 @@
 </main>
 
 @code 
-	{
+{
 	[SupplyParameterFromForm, EditorRequired]
 	private HomeModel Model { get; set; }
 
 	protected override void OnInitialized() => Model ??= new();
 
-	private bool SubmitDiasbled => Model.Datatype == string.Empty;
+	private bool SubmitDisabled => Model.Datatype == string.Empty;
+	private string SubmitButtonTooltip => SubmitDisabled ? Messages.SubmitDisabledCaption : string.Empty;
 
 	private void Submit() 
 	{

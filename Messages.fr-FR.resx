@@ -180,4 +180,10 @@
   <data name="NoErrorsLabel" xml:space="preserve">
     <value>Pas d'Erreurs</value>
   </data>
+  <data name="ValuesTextboxCaption" xml:space="preserve">
+    <value>Les valeurs peuvent être saisies séparées par un espace, par une nouvelle ligne, ou une combinaison de ceux-ci. </value>
+  </data>
+  <data name="SubmitDisabledCaption" xml:space="preserve">
+    <value>Choisir un type de données pour activer le bouton Submit</value>
+  </data>
 </root>
